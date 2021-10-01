@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>iOS Automatic Deep Linking</title>
-<script>
+    <head>
+    <title>iOS Automatic Deep Linking</title>
+    <script>
 //see if our window is active
 window.isActive = true;
 $(window).focus(function() { this.isActive = true; });
 $(window).blur(function() { this.isActive = false; });
 
 function startMyApp(){
-window.location.href = "cashminute://somestring";
+  document.location = 'cashminute://firereceipt/success/CM746403234';
 
+  setTimeout( function(){
+    if (window.isActive) {
+        document.location = 'https://www.cashminute.com/firereceipt/success/CM746403234';
+    }
+  }, 1000);
 }
 </script>
-<style type="text/css">
-.twitter-detect {
-display: none;
-}
-</style>
-</head>
-<body onload="startMyApp()">
-<p>Website content.</p>
-  
-  <a href="cashminute://somestring">Click here if app doesn't open...-------------</a>
-</body>
+    <style type="text/css">
+      .twitter-detect {
+        display: none;
+      }
+    </style>
+    </head>
+    <body onload="startMyApp()">
+    <p>Website content.</p>
+    </body>
 </html>
